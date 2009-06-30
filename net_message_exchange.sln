@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "net_message_exchange", "net_message_exchange\net_message_exchange.vcproj", "{9E887018-179F-4E36-A95B-87DBF306114E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_server", "test_server\test_server.vcproj", "{6022846B-2158-43D1-B87F-EC5E023BC988}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9E887018-179F-4E36-A95B-87DBF306114E} = {9E887018-179F-4E36-A95B-87DBF306114E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_client", "test_client\test_client.vcproj", "{A14752EC-683D-42C2-AB9C-23FDE61357B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9E887018-179F-4E36-A95B-87DBF306114E} = {9E887018-179F-4E36-A95B-87DBF306114E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E887018-179F-4E36-A95B-87DBF306114E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9E887018-179F-4E36-A95B-87DBF306114E}.Debug|Win32.Build.0 = Debug|Win32
+		{9E887018-179F-4E36-A95B-87DBF306114E}.Release|Win32.ActiveCfg = Release|Win32
+		{9E887018-179F-4E36-A95B-87DBF306114E}.Release|Win32.Build.0 = Release|Win32
+		{6022846B-2158-43D1-B87F-EC5E023BC988}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6022846B-2158-43D1-B87F-EC5E023BC988}.Debug|Win32.Build.0 = Debug|Win32
+		{6022846B-2158-43D1-B87F-EC5E023BC988}.Release|Win32.ActiveCfg = Release|Win32
+		{6022846B-2158-43D1-B87F-EC5E023BC988}.Release|Win32.Build.0 = Release|Win32
+		{A14752EC-683D-42C2-AB9C-23FDE61357B6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A14752EC-683D-42C2-AB9C-23FDE61357B6}.Debug|Win32.Build.0 = Debug|Win32
+		{A14752EC-683D-42C2-AB9C-23FDE61357B6}.Release|Win32.ActiveCfg = Release|Win32
+		{A14752EC-683D-42C2-AB9C-23FDE61357B6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = 
+	EndGlobalSection
+EndGlobal
