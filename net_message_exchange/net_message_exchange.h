@@ -12,8 +12,8 @@
 
 #pragma once
 
-#ifdef _WIN32
-#	ifdef NET_MESSAGE_EXCHANGE_EXPORTS
+#if defined(_WIN32) && defined(DLL)
+#	if defined(net_message_exchange_EXPORTS)
 #		define DLLAPI __declspec(dllexport)
 #	else
 #		define DLLAPI __declspec(dllimport)
