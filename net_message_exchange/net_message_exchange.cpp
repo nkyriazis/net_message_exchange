@@ -21,6 +21,7 @@ purpose:	Implementation
 #include <sstream>
 #include <fstream>
 
+//	for xml serialization the next line should be commented
 #define make_nvp(a,b) (b)
 
 using namespace std;
@@ -29,8 +30,12 @@ using namespace archive;
 using namespace serialization;
 using namespace asio;
 
+//////////////////////////////////////////////////////////////////////////
+
 static io_service g_ioService;
-const char *g_port = "12345";
+static const char *g_port = "12345";
+
+//////////////////////////////////////////////////////////////////////////
 
 size_t port_from_string(const std::string &str)
 {
@@ -76,6 +81,8 @@ namespace boost
 	}
 }
 
+//	For each class direct instantiation of template
+//	code and appropriate registration is required
 BOOST_CLASS_EXPORT_GUID(net_message_exchange::message_name, "message_name")
 BOOST_CLASS_EXPORT_GUID(net_message_exchange::message_time, "message_time")
 
@@ -158,8 +165,9 @@ namespace net_message_exchange
 		{
 		}
 	};
-	
 
+	//////////////////////////////////////////////////////////////////////////
+	
 	message_stream::private_data::~private_data()
 	{
 
@@ -189,24 +197,4 @@ namespace net_message_exchange
 		return msg;
 	}
 
-	void test_serialization()
-	{
-		{
-			message_name::ptr original(new message_name);
-			dynamic_cast<message_name&>(*original).name = "Nikos is the\nman and\trocks...";
-
-			{
-				ofstream stream("tmp.txt");
-				binary_oarchive ar(stream, no_header | no_codecvt);
-				ar & make_nvp("message", original);
-			}
-
-			{
-				message_base::ptr msg;
-				ifstream stream("tmp.txt");
-				binary_iarchive ar(stream, no_header | no_codecvt);
-				ar & make_nvp("message", msg);
-			}
-		}
-	}
 }

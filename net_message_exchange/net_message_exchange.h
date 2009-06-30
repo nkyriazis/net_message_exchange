@@ -27,8 +27,10 @@
 
 namespace net_message_exchange
 {
+	//	Type definitions
 	typedef std::string string;
 
+	//	Forward declarations
 	struct message_base;
 	struct message_name;
 	struct message_time;
@@ -101,14 +103,15 @@ namespace net_message_exchange
 		void				send_message	(const message_base::ptr &msg);
 		message_base::ptr	receive_message	();
 
+		//////////////////////////////////////////////////////////////////////////
 		struct DLLAPI private_data
 		{
 			typedef boost::shared_ptr<private_data> ptr;
 			virtual ~private_data();
 		};
+		//////////////////////////////////////////////////////////////////////////
 	private:
 		private_data::ptr	m_privateData;
 	};
 
-	DLLAPI void test_serialization();
-}
+}	//	namespace net_message_exchange

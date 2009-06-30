@@ -1,7 +1,6 @@
 // test_server.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include "../net_message_exchange/net_message_exchange.h"
 #include <iostream>
 #include <boost/asio.hpp>
@@ -23,13 +22,14 @@ struct message_dispatcher :
 	}
 };
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	try
 	{
 		net_message_exchange::message_stream stream;
-		stream.receive_message()->accept(message_dispatcher());
-		stream.receive_message()->accept(message_dispatcher());
+		message_dispatcher visitor;
+		stream.receive_message()->accept(visitor);
+		stream.receive_message()->accept(visitor);
 // 		boost::asio::io_service io;
 // 		boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::tcp::v4(), 12345);
 // 		boost::asio::ip::tcp::acceptor acceptor(io, endpoint);

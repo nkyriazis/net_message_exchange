@@ -1,17 +1,16 @@
 // test_client.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include "../net_message_exchange/net_message_exchange.h"
 #include <iostream>
 
 using namespace std;
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	try
 	{
-		net_message_exchange::message_stream stream("localhost");
+		net_message_exchange::message_stream stream(argv[1]);
 
 		{
 			net_message_exchange::message_name::ptr msg(new net_message_exchange::message_name);
