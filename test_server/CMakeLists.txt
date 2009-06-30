@@ -1,0 +1,6 @@
+include_directories("$ENV{CS529_BOOST}/include")
+link_directories("$ENV{CS529_BOOST}/lib")
+add_definitions(-DBOOST_ALL_NO_LIB)
+set(test_server_sources test_server.cpp)
+add_executable(test_server ${test_server_sources})
+target_link_libraries(test_server net_message_exchange)

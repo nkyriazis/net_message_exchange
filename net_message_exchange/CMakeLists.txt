@@ -1,0 +1,7 @@
+include_directories("$ENV{CS529_BOOST}/include")
+link_directories("$ENV{CS529_BOOST}/lib")
+add_definitions(-DBOOST_ALL_NO_LIB -DNET_MESSAGE_EXCHANGE_EXPORTS)
+set(net_message_exchange_sources net_message_exchange.h net_message_exchange.cpp)
+add_library(net_message_exchange SHARED ${net_message_exchange_sources})
+target_link_libraries(net_message_exchange optimized boost_serialization-vc90-mt.lib boost_system-vc90-mt.lib)
+target_link_libraries(net_message_exchange debug boost_serialization-vc90-mt-gd.lib boost_system-vc90-mt-gd.lib)
